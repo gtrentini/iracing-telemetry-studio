@@ -1,0 +1,67 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+.statusBar {
+  height: 32px;
+  background-color: vars.$bg-surface;
+  border-top: 1px solid vars.$border-color;
+  padding: 0 1rem;
+  @include mixins.flex-between;
+  font-family: vars.$font-mono;
+  font-size: 0.775rem;
+  color: vars.$text-muted;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.metricsGroup {
+  @include mixins.flex-row(flex-start, center, 1.25rem);
+}
+
+.metricItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.metricLabel {
+  color: vars.$text-muted;
+}
+
+.metricValue {
+  color: vars.$text-primary;
+  font-weight: 500;
+
+  &.speed {
+    color: vars.$signal-speed;
+  }
+
+  &.throttle {
+    color: vars.$signal-throttle;
+  }
+
+  &.brake {
+    color: vars.$signal-brake;
+  }
+
+  &.gear {
+    color: vars.$signal-gear;
+  }
+
+  &.steering {
+    color: vars.$signal-steering;
+  }
+}
+
+.statusIndicator {
+  @include mixins.flex-row(flex-end, center, 0.5rem);
+  font-size: 0.725rem;
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: vars.$signal-throttle;
+    box-shadow: 0 0 4px vars.$signal-throttle;
+  }
+}

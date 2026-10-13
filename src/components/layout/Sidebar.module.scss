@@ -1,0 +1,211 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+.sidebar {
+  width: 250px;
+  background-color: vars.$bg-surface;
+  border-right: 1px solid vars.$border-color;
+  padding: 1.25rem 1rem;
+  overflow-y: auto;
+  @include mixins.thin-scrollbar;
+  @include mixins.flex-column(flex-start, stretch, 1.25rem);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: vars.$text-muted;
+  margin: 0;
+}
+
+.channelList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.channelItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.65rem;
+  border-radius: 6px;
+  background-color: vars.$bg-panel;
+  border: 1px solid vars.$border-color;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+}
+
+.channelLabelGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.checkbox {
+  cursor: pointer;
+  accent-color: vars.$signal-speed;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &.speed {
+    background-color: vars.$signal-speed;
+    box-shadow: 0 0 6px rgba(vars.$signal-speed, 0.6);
+  }
+
+  &.throttle {
+    background-color: vars.$signal-throttle;
+    box-shadow: 0 0 6px rgba(vars.$signal-throttle, 0.6);
+  }
+
+  &.brake {
+    background-color: vars.$signal-brake;
+    box-shadow: 0 0 6px rgba(vars.$signal-brake, 0.6);
+  }
+
+  &.steering {
+    background-color: vars.$signal-steering;
+    box-shadow: 0 0 6px rgba(vars.$signal-steering, 0.6);
+  }
+
+  &.gear {
+    background-color: vars.$signal-gear;
+    box-shadow: 0 0 6px rgba(vars.$signal-gear, 0.6);
+  }
+}
+
+.channelName {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: vars.$text-primary;
+}
+
+.channelUnit {
+  font-family: vars.$font-mono;
+  font-size: 0.75rem;
+  color: vars.$text-muted;
+}
+
+.lapList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lapItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  background-color: vars.$bg-panel;
+  border: 1px solid vars.$border-color;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &.isBase {
+    border-color: vars.$signal-speed;
+    background-color: rgba(56, 189, 248, 0.06);
+  }
+
+  &.isRef {
+    border-color: vars.$signal-delta;
+    background-color: rgba(168, 85, 247, 0.06);
+  }
+
+  &.isBoth {
+    border-color: vars.$signal-speed;
+  }
+}
+
+.lapRow {
+  @include mixins.flex-between;
+}
+
+.lapNumber {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: vars.$text-primary;
+}
+
+.lapTime {
+  font-family: vars.$font-mono;
+  font-size: 0.8rem;
+  color: vars.$text-primary;
+}
+
+.badgeGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.roleBtn {
+  font-size: 0.675rem;
+  font-weight: 600;
+  font-family: vars.$font-mono;
+  padding: 0.2rem 0.45rem;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid vars.$border-color;
+  background-color: transparent;
+  color: vars.$text-muted;
+  transition: all 0.12s ease;
+
+  &:hover {
+    border-color: vars.$text-muted;
+    color: vars.$text-primary;
+  }
+
+  &.activeBase {
+    background-color: rgba(56, 189, 248, 0.2);
+    border-color: vars.$signal-speed;
+    color: vars.$signal-speed;
+    box-shadow: 0 0 6px rgba(56, 189, 248, 0.4);
+  }
+
+  &.activeRef {
+    background-color: rgba(168, 85, 247, 0.2);
+    border-color: vars.$signal-delta;
+    color: vars.$signal-delta;
+    box-shadow: 0 0 6px rgba(168, 85, 247, 0.4);
+  }
+}
+
+.emptyLaps {
+  font-size: 0.8rem;
+  color: vars.$text-muted;
+  font-style: italic;
+  padding: 0.5rem 0;
+}

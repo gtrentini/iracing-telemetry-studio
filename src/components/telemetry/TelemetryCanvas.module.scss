@@ -1,0 +1,105 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+.canvasContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  min-height: 280px;
+  overflow: hidden;
+  background-color: vars.$bg-surface;
+  cursor: crosshair;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.legendBar {
+  position: absolute;
+  top: 8px;
+  right: 84px;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background-color: rgba(18, 24, 32, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 0.35rem 0.85rem;
+  border-radius: 5px;
+  border: 1px solid vars.$border-color;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.legendGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.legendDivider {
+  width: 1px;
+  height: 14px;
+  background-color: vars.$border-color;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: vars.$font-mono;
+  font-size: 0.725rem;
+  color: vars.$text-muted;
+}
+
+.boldText {
+  color: vars.$text-primary;
+  font-weight: 600;
+}
+
+.legendLineSolid {
+  width: 14px;
+  height: 2px;
+  background-color: vars.$signal-speed;
+  border-radius: 1px;
+}
+
+.legendLineDashed {
+  width: 14px;
+  height: 0;
+  border-top: 2px dashed vars.$signal-delta;
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  &.speed {
+    background-color: vars.$signal-speed;
+    box-shadow: 0 0 6px vars.$signal-speed;
+  }
+
+  &.gear {
+    background-color: vars.$signal-gear;
+    box-shadow: 0 0 6px vars.$signal-gear;
+  }
+
+  &.throttle {
+    background-color: vars.$signal-throttle;
+    box-shadow: 0 0 6px vars.$signal-throttle;
+  }
+
+  &.brake {
+    background-color: vars.$signal-brake;
+    box-shadow: 0 0 6px vars.$signal-brake;
+  }
+
+  &.steering {
+    background-color: vars.$signal-steering;
+    box-shadow: 0 0 6px vars.$signal-steering;
+  }
+}

@@ -1,0 +1,62 @@
+@use 'sass:color';
+@use './variables' as vars;
+
+// Panel surfaces with standard borders and subtle radius
+@mixin panel-surface {
+  background-color: vars.$bg-panel;
+  border: 1px solid vars.$border-color;
+  border-radius: 6px;
+}
+
+// Custom thin dark scrollbars
+@mixin thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: vars.$border-color transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: vars.$border-color;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: color.adjust(vars.$border-color, $lightness: 10%);
+    }
+  }
+}
+
+// Flex alignment helpers
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-row($justify: flex-start, $align: center, $gap: 0) {
+  display: flex;
+  flex-direction: row;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin flex-column($justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}

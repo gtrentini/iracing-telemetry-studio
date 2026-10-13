@@ -1,0 +1,77 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+.trackMapContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: vars.$bg-surface;
+  overflow: hidden;
+  user-select: none;
+}
+
+.mapHeader {
+  @include mixins.flex-between;
+  padding: 0.5rem 0.85rem;
+  background-color: vars.$bg-panel;
+  border-bottom: 1px solid vars.$border-color;
+  font-family: vars.$font-mono;
+  font-size: 0.75rem;
+  color: vars.$text-muted;
+  flex-shrink: 0;
+
+  .titleGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 600;
+    color: vars.$text-primary;
+  }
+
+  .icon {
+    width: 14px;
+    height: 14px;
+    color: vars.$signal-speed;
+  }
+
+  .posBadge {
+    color: vars.$signal-speed;
+    background-color: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    font-size: 0.7rem;
+  }
+}
+
+.canvasWrapper {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.emptyState {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @include mixins.flex-center;
+  font-family: vars.$font-mono;
+  font-size: 0.75rem;
+  color: vars.$text-muted;
+  padding: 1rem;
+  text-align: center;
+}

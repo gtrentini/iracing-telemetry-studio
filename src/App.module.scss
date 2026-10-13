@@ -1,0 +1,35 @@
+@use './styles/variables' as vars;
+
+.appContainer {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    'header  header'
+    'sidebar stage'
+    'footer  footer';
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: vars.$bg-root;
+}
+
+.headerWrapper {
+  grid-area: header;
+}
+
+.sidebarWrapper {
+  grid-area: sidebar;
+  display: flex;
+  overflow: hidden;
+}
+
+.stageWrapper {
+  grid-area: stage;
+  display: flex;
+  overflow: hidden;
+}
+
+.footerWrapper {
+  grid-area: footer;
+}

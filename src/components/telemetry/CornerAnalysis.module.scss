@@ -1,0 +1,71 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+.cornerBar {
+  background-color: vars.$bg-panel;
+  border-top: 1px solid vars.$border-color;
+  padding: 0.45rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-family: vars.$font-mono;
+  font-size: 0.75rem;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.zoneGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.zoneBadge {
+  background-color: rgba(56, 189, 248, 0.15);
+  border: 1px solid vars.$signal-speed;
+  color: vars.$signal-speed;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.725rem;
+  letter-spacing: 0.03em;
+}
+
+.metricsPills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.statPill {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: vars.$bg-surface;
+  border: 1px solid vars.$border-color;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+
+  .label {
+    color: vars.$text-muted;
+    font-size: 0.7rem;
+  }
+
+  .value {
+    color: vars.$text-primary;
+    font-weight: 600;
+  }
+
+  .deltaPositive {
+    color: vars.$signal-throttle;
+    font-weight: 600;
+  }
+
+  .deltaNegative {
+    color: vars.$signal-brake;
+    font-weight: 600;
+  }
+}
